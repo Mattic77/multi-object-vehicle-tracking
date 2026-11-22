@@ -1,13 +1,25 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
+dist/
+build/
+
+# Données brutes, poids et sorties
 *.mp4
 *.avi
 *.mov
+*.mkv
 *.pt
-runs/
+*.pth
+*.onnx
 datasets/
+runs/
 outputs/
+
+# Environnements et éditeurs
 .env
+.venv/
+venv/
 .vscode/
 .idea/
