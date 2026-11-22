@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.mp4
+*.avi
+*.mov
+*.pt
+runs/
+datasets/
+outputs/
+.env
+.vscode/
+.idea/
