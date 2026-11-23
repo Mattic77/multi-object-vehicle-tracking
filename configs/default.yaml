@@ -1,0 +1,29 @@
+# Hyperparamètres du pipeline multi-objets.
+# Les chemins relatifs sont résolus depuis le dossier où la commande est lancée.
+
+source: data/vehicles.mp4
+weights: yolo11n.pt
+tracker: bytetrack.yaml
+device: null
+conf: 0.25
+iou: 0.45
+# Classes COCO : 0 personne, 1 vélo, 2 voiture, 3 moto, 5 bus, 7 camion.
+classes:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 5
+  - 7
+# Ligne virtuelle. Valeurs entre 0 et 1 = fraction de la largeur / hauteur.
+line: "0.05,0.60,0.95,0.60"
+trail: 30
+save_vid: true
+show: false
+output: outputs/annotated.mp4
+metrics_out: outputs/benchmark.json
+bench_plot: outputs/benchmark_breakdown.png
+eval_out: outputs/evaluation.json
+gt: null
+error_dir: outputs/errors
+max_frames: null

@@ -23,3 +23,7 @@ outputs/
 venv/
 .vscode/
 .idea/
+
+# Diapositives et soutenance
+docs/
+scripts/build_slides.py
