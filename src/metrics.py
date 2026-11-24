@@ -176,7 +176,7 @@ class PerformanceMonitor:
 
 # --- Test autonome (sans avoir besoin des fichiers des autres membres) ---
 if __name__ == "__main__":
-    bench = PipelineBenchmark(device="cpu")
+    bench = PerformanceMonitor(device="cpu")
 
     for frame_i in range(50):
         bench.start_frame()

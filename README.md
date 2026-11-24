@@ -76,6 +76,22 @@ Le notebook clone ce dépôt, installe `requirements.txt`, télécharge la vidé
 
 `run_experiment.py` affiche `Colab: True | CUDA: True` quand le GPU est bien pris.
 
+## Résultats
+
+Essai sur `input_sample.mp4` (538 images, 3840×2160), avec YOLO11n et ByteTrack pour les classes voiture, moto, bus et camion. CUDA n'était pas disponible dans Colab : les deux passages ont donc été exécutés sur CPU.
+
+| Mesure | Passage 1 | Passage 2 |
+|---|---:|---:|
+| Temps total | 89,09 s | 98,20 s |
+| Vitesse moyenne | 6,04 FPS | 5,48 FPS |
+| Temps moyen détection + suivi par image | 163,07 ms | 179,95 ms |
+| Identifiants suivis uniques | 23 | 23 |
+| Véhicules comptés | 10 (7 entrants, 3 sortants) | 10 (7 entrants, 3 sortants) |
+
+L'évaluation heuristique a relevé 9 pistes courtes (moins de 5 images) et 50 pertes soudaines de piste. Le compteur de réapparitions d'identifiant est à 0 ; il détecte la réapparition du même ID après plus de 15 images.
+
+
+
 ## Chaîne
 
 `src/pipeline.py` enchaîne, pour chaque image :
@@ -86,13 +102,15 @@ Le notebook clone ce dépôt, installe `requirements.txt`, télécharge la vidé
 4. **evaluator** — `TrackingEvaluator`
 5. **benchmark** — `PerformanceMonitor`, JSON et graphique
 
+
 ## Contributions
 
-| Partie | Fichiers | Auteur dans l'historique git |
+| Membre | Contribution | Fichiers du projet |
 |---|---|---|
-| Structure, détection YOLO11n, suivi ByteTrack, comptage, premier notebook | `src/detector.py`, `src/tracker.py`, `src/counter.py`, base de `src/main.py`, `run_colab.ipynb` | Younes HADLI |
-| Mise à jour du notebook Colab | `run_colab.ipynb` | Thanina SEGHILANI  |
-| Benchmark et évaluation du suivi (membre 3) | `src/metrics.py`, `src/evaluator.py` | Neila KRIKA |
-| Orchestration, CLI, config, test de bout en bout, README (membre 4) | `src/pipeline.py`, `scripts/run_experiment.py`, `configs/default.yaml`, `tests/test_smoke.py`, `README.md` | Sanad MEKHLOUF   |
+| Younes HADLI | Chargement des vidéos et détection | `src/pipeline.py` (chargement vidéo), `src/detector.py` |
+| Thanina SEGHILANI | Suivi et comptage | `src/tracker.py`, `src/counter.py`,  |
+| Neila KRIKA | Évaluation et benchmark | `src/evaluator.py`, `src/metrics.py` |
+| Sanad MEKHLOUF | Orchestration, Pipeline et lancement des expériences | `src/pipeline.py`, `run_experiment.py`, `configs/default.yaml` |
+
 
 `src/main.py` reste un raccourci vers le pipeline pour les anciennes commandes (`--input`, `--model`).
