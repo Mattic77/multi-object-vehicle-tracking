@@ -91,8 +91,8 @@ Le notebook clone ce dépôt, installe `requirements.txt`, télécharge la vidé
 | Partie | Fichiers | Auteur dans l'historique git |
 |---|---|---|
 | Structure, détection YOLO11n, suivi ByteTrack, comptage, premier notebook | `src/detector.py`, `src/tracker.py`, `src/counter.py`, base de `src/main.py`, `run_colab.ipynb` | Younes HADLI |
-| Mise à jour du notebook Colab | `run_colab.ipynb` | SEGHILANI Thanina |
-| Benchmark et évaluation du suivi (membre 3) | `src/metrics.py`, `src/evaluator.py` | nkrika |
-| Orchestration, CLI, config, test de bout en bout, README (membre 4) | `src/pipeline.py`, `scripts/run_experiment.py`, `configs/default.yaml`, `tests/test_smoke.py`, `README.md` | MEKHLOUF  Sanad |
+| Mise à jour du notebook Colab | `run_colab.ipynb` | Thanina SEGHILANI  |
+| Benchmark et évaluation du suivi (membre 3) | `src/metrics.py`, `src/evaluator.py` | Neila KRIKA |
+| Orchestration, CLI, config, test de bout en bout, README (membre 4) | `src/pipeline.py`, `scripts/run_experiment.py`, `configs/default.yaml`, `tests/test_smoke.py`, `README.md` | Sanad MEKHLOUF   |
 
 `src/main.py` reste un raccourci vers le pipeline pour les anciennes commandes (`--input`, `--model`).
